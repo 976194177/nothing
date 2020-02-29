@@ -29,7 +29,7 @@ class API(object):
             # 连接邮箱服务器 host 和 port
             smtp.connect('smtp.qq.com', 25)  # 可以简写  smtp=smtplib.SMTP('smtp.qq.com',25)
             # 登陆邮箱  第二个参数是qq邮箱授权码
-            smtp.login('976194177@qq.com', 'gcrnwxlfukombgaa')
+            smtp.login('此处填入你的邮箱', '此处填入你的邮箱授权码')
             # 发送方，接收方（可以有多个['接收地址1'，'接收地址2'，....]），发送的消息（字符串类型，使用邮件格式）
             # message.as_string() 将MIMEText对象变为str
             smtp.sendmail('976194177@qq.com', email_address, message.as_string())
@@ -70,8 +70,9 @@ class API(object):
 
 
     @classmethod
+    # 这边通过mysql添加了程序使用权限，可自行修改
     def get_allow(cls,account):
-        db = pymysql.connect(host='112.124.46.145', user='root', password='root', port=3306,
+        db = pymysql.connect(host='ip地址', user='root', password='root', port=3306,
                              db='test')
         cursor = db.cursor()
 
